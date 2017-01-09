@@ -1,0 +1,34 @@
+<GridLayout rows="auto" 
+  [style.width]="viewWidth"
+  [style.height]="viewHeight">
+  <GridLayout #shareButton
+    [style.width]="shareButtonSize"
+    *ngFor="let shareIcon of shareIcons"
+    (tap)="onShareButtonTap(shareIcon)">
+    <Label
+      shadow
+      [style.color]="buttonColor"
+      [style.font-size]="shareButtonSize" 
+      class="fa button" 
+      [text]="'fa-circle' | fonticon">
+    </Label>
+    <Label [style.font-size]="shareIconSize"
+      [style.color]="iconColor"
+      class="fa share-icon"
+      [text]="'fa-' + shareIcon | fonticon"></Label>
+  </GridLayout>
+  <GridLayout 
+    (tap)="onMainButtonTap()"
+    [style.width]="size">
+    <Label
+      shadow
+      [style.color]="buttonColor"
+      [style.font-size]="size" 
+      class="fa button" 
+      [text]="'fa-circle' | fonticon"></Label>
+    <Label [style.font-size]="mainIconSize" 
+      [style.color]="iconColor"
+      class="fa share-icon" 
+      [text]="'fa-share-alt' | fonticon"></Label>
+  </GridLayout>
+</GridLayout>
